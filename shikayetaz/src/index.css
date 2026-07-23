@@ -1,0 +1,239 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: #f4f6f8;
+  color: #1f2933;
+}
+
+.app { max-width: 880px; margin: 0 auto; padding: 24px; }
+
+/* ---------------------------------------------------------------------
+   Signature idea: this reads as an internal municipal panel, not a generic
+   card-grid demo — a tracked-out "authority" eyebrow above a heavy title,
+   hairline dividers, and status colour used sparingly (only on the badge
+   and the priority stripe) so it stays legible for an operator scanning
+   many complaints, not decorative.
+   ------------------------------------------------------------------- */
+
+.app__header {
+  border-bottom: 1px solid #d7dde3;
+  padding-bottom: 16px;
+  margin-bottom: 20px;
+}
+
+.app__eyebrow {
+  margin: 0 0 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #52606d;
+}
+
+.app__title {
+  margin: 0;
+  font-size: 32px;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: #102a43;
+}
+
+.app__subtitle {
+  margin: 4px 0 0;
+  color: #52606d;
+  font-size: 15px;
+}
+
+/* ---------- Stats bar ---------- */
+
+.stats-bar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.stat {
+  flex: 1;
+  background: #ffffff;
+  border: 1px solid #e4e9ee;
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.stat__value {
+  display: block;
+  font-size: 26px;
+  font-weight: 700;
+  color: #102a43;
+  line-height: 1.1;
+}
+
+.stat__label {
+  display: block;
+  margin-top: 2px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #7b8794;
+}
+
+/* ---------- Toolbar: filters + search ---------- */
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+}
+
+.filter-bar {
+  display: flex;
+  gap: 6px;
+}
+
+.filter-btn {
+  border: 1px solid #d7dde3;
+  background: #ffffff;
+  color: #334455;
+  padding: 7px 14px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease;
+}
+
+.filter-btn:hover {
+  border-color: #9aa5b1;
+}
+
+.filter-btn--active {
+  background: #102a43;
+  border-color: #102a43;
+  color: #ffffff;
+}
+
+.search-input {
+  flex: 1;
+  min-width: 180px;
+  max-width: 260px;
+  padding: 7px 12px;
+  border: 1px solid #d7dde3;
+  border-radius: 999px;
+  font-size: 13px;
+  font-family: inherit;
+  background: #ffffff;
+  color: #1f2933;
+}
+
+.search-input:focus {
+  outline: 2px solid #102a43;
+  outline-offset: 1px;
+}
+
+/* ---------- Loading / empty states ---------- */
+
+.loading {
+  color: #52606d;
+  font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.empty-state {
+  background: #ffffff;
+  border: 1px dashed #d7dde3;
+  border-radius: 10px;
+  padding: 28px 16px;
+  text-align: center;
+  color: #7b8794;
+  font-size: 14px;
+}
+
+/* ---------- Complaint list / card ---------- */
+
+.complaint-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e4e9ee;
+  border-radius: 10px;
+  padding: 14px 16px;
+  box-shadow: 0 1px 2px rgba(16, 42, 67, 0.04);
+  cursor: pointer;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(16, 42, 67, 0.1);
+}
+
+.card--high-priority {
+  border-left: 4px solid #e12d39;
+}
+
+.card__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card__title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #102a43;
+}
+
+.card__meta {
+  margin-top: 8px;
+  font-size: 12.5px;
+  color: #7b8794;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.card__dot { color: #cbd2d9; }
+
+.card__priority--high { color: #e12d39; font-weight: 600; }
+.card__priority--medium { color: #9a6a00; font-weight: 600; }
+.card__priority--low { color: #52606d; }
+
+/* ---------- Status badge ---------- */
+
+.badge {
+  flex-shrink: 0;
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.badge--new {
+  background: #dceefb;
+  color: #0b5fa5;
+}
+
+.badge--in_progress {
+  background: #fef1c7;
+  color: #8a5a00;
+}
+
+.badge--closed {
+  background: #dcf5e6;
+  color: #1a7a44;
+}
